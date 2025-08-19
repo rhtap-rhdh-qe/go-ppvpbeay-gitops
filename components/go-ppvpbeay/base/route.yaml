@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: go-ppvpbeay
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: go-ppvpbeay 
+  name: go-ppvpbeay
+spec:
+  port:
+    targetPort: 8081 
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: go-ppvpbeay
+    weight: 100 
